@@ -135,5 +135,5 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
-/static/node_modules
 /static/img
+/static/node_modules
