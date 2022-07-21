@@ -1,0 +1,43 @@
+// Tablets & smaller
+@media(max-width: 800px) {
+    #header-home {
+        height: 30rem;
+
+        .header-content {
+            padding-top: 5rem;
+        }
+    }
+
+    .search-bar.top {
+        display: none !important;
+    }
+    .search-bar.bottom {
+        display: block !important;
+    }
+
+    #main-nav {
+
+        a {
+            padding: 0.5rem;
+        }
+        span {
+            display: none;
+        }
+    }
+    #nav-bottom {
+        .large-screen {
+            display: none;
+        }
+        .small-screen {
+            display: inline-block !important;
+        }          
+    }
+
+    header {
+        padding: 1rem 0;
+    }
+
+    
+}
+
+

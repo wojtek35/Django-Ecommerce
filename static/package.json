@@ -1,0 +1,14 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "static stuff",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

@@ -1,0 +1,246 @@
+@import 'config';
+@import 'utilities';
+// General Styles
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    background: $light-color;
+}
+
+a {
+    text-decoration: none;
+    color: $dark-color;
+}
+
+ul {
+    list-style: none;
+}
+h2, h3, h3 {
+    text-transform: uppercase;
+}
+
+img {
+    width: 100%;
+}
+
+
+// Logo
+#logo {
+    width: 70px;
+    height: 70px;
+}
+
+// Header
+header {
+    background: #fff;
+    padding-bottom: 0;
+    padding-top: 1rem;
+
+    #main-nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                position: relative;
+            }
+        }
+    
+        i {
+            margin-right: 0.5rem;
+        }
+    
+        a {
+            text-decoration: none;
+            color: $dark-color;
+            padding: 10px;
+            margin: 0;
+            transition: color 0.3s;
+    
+            &:hover {
+                color: $main-color
+            }
+        }
+    }
+
+    #nav-bottom {
+        display: flex;
+        justify-content: space-between;
+        .open-slide {
+            a {
+                width: 30px;
+                height: 30px;
+                padding: 0.5rem;
+                border:none;
+            }
+        }
+        
+
+        ul {
+            display: flex;
+            flex-direction: row;
+        }
+
+        a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+                border-bottom: 2px solid $main-color;
+            }
+        }
+
+        .small-screen {
+            display: none;
+            width: 100%;
+            
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border: none;
+
+                a {
+                    &:hover {
+                        border: none;
+                    }
+                }
+            }
+        }
+
+
+
+    }
+}
+
+// Search bar 
+nav {
+    .search-bar {
+        flex: auto;
+        .input-wrapper {
+            margin-left: 1rem;
+    
+            input {
+                // max-width: 500px;
+                width: 300px;
+                border-radius: 50px;
+                background-color: $light-color;
+                border: 1px solid $medium-color;
+                padding: 10px;
+                left: 0px;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $border-focus-color;
+                }
+            }
+        }
+    }
+
+    .search-bar.top {
+        display: block;
+    }
+    .search-bar.bottom {
+        display: none;
+    }
+
+    
+    .search-bar.bottom {
+        width: 100%;
+        flex: 2;
+    }
+
+}
+// Account button
+.nav-modal {
+    display: none;
+    opacity: 0;
+}
+
+// Small modals
+.modal-utility {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    top: -25px;
+    right: 0px;
+}
+
+.small-modal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background: #fff;
+    border-radius: 5px; 
+    border: 0.5px solid $medium-color;
+    // width: 250px; 
+    // height: 150px;
+    top: 45px;
+    right: 0px;
+    padding: 1rem;
+        
+    .shape {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 0.5px solid $medium-color;
+        transform: rotate(45deg);
+        top: -10px;
+        right: 50px;
+        border-right: none;
+        border-bottom: none;
+    }
+}
+
+// Header 
+#header {
+    
+    // Header Home
+    &-home {
+        background: $bg-image no-repeat center right / cover;
+        height: 100vh;
+        color: #fff;
+
+        // Header content
+        .header-content {
+            text-align: center;
+            padding-top: 20%;
+
+            h1 {
+                font-size: 4rem;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// Import media queries
+@import 'media'
