@@ -1,0 +1,32 @@
+{% extends "../base.html" %} {% load static %} {% block title%}Home{% endblock %}
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container-sm">
+
+    <div class="h4 py-5">{{ category.name }}</div>
+      <div class="row text-center row-cols-md-3 row-cols-lg-4 g-5">
+        {% for product in products %}
+        <a href="{{ product.get_absolute_url }}" class="col d-flex justify-content-center alig-items-center">
+          <div class="card float-center shadow-sm">
+            <img src="{{ product.image.url }}" alt="" class="img-fluid">
+            <div class="cart-title">{{ product.title }}</div>
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+    {% endblock %}
+  </div>
+</div>

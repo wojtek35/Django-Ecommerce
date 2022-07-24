@@ -19,7 +19,7 @@
 
         {% for product in products %}
 
-        <div class="col d-flex justify-content-center alig-items-center">
+        <a href="{{ product.get_absolute_url }}" class="col d-flex justify-content-center alig-items-center">
           <div class="card float-center shadow-sm">
             <img src="{{ product.image.url }}" alt="" class="img-fluid">
             <div class="cart-title">{{ product.title }}</div>
@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </a>
 
         {% endfor %}
 

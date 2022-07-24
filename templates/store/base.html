@@ -29,7 +29,7 @@
     <header>
       <div class="container">
             <nav id="main-nav">
-                <img src="static\img\hebe.svg" id="logo" />
+                <img src="{% static 'img/hebe.svg' %}" id="logo" />
                 <form class="search-bar top">
                     <div class="input-wrapper">
                         <input class="search-bar" type="text" class="search-field" value placeholder="Search product...">
@@ -71,7 +71,7 @@
                 <div class="large-screen">
                     <ul class="navbar-nav">
                     {% for category in categories %}
-                        <li><a href="#">{{category.name|title}}</a></li>
+                        <li><a href="{{ category.get_absolute_url }}">{{category.name|title}}</a></li>
                     {% endfor %}
                     </ul>
                 </div>
