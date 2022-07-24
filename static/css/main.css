@@ -1,5 +1,5 @@
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   padding: 0 1.5rem;
   margin: auto; }
 
@@ -75,11 +75,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    header #main-nav ul {
+    header #main-nav ul.nav-list {
       display: flex;
-      align-items: center; }
-      header #main-nav ul li {
+      align-items: center;
+      margin: 0;
+      padding: 0; }
+      header #main-nav ul.nav-list li {
         position: relative; }
+        header #main-nav ul.nav-list li a {
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
     header #main-nav i {
       margin-right: 0.5rem; }
     header #main-nav a {
@@ -92,12 +98,17 @@ header {
         color: #CF8C52; }
   header #nav-bottom {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: center; }
     header #nav-bottom .open-slide a {
       width: 30px;
       height: 30px;
-      padding: 0.5rem;
-      border: none; }
+      border: none;
+      position: relative; }
+      header #nav-bottom .open-slide a svg {
+        position: absolute;
+        top: 0;
+        left: 0; }
     header #nav-bottom ul {
       display: flex;
       flex-direction: row; }
@@ -194,6 +205,40 @@ nav .search-bar.bottom {
     #header-home .header-content h1 {
       font-size: 4rem;
       line-height: 1.2; }
+
+.products-section {
+  display: block;
+  margin: 0 auto;
+  padding: 2rem; }
+  .products-section .products-grid {
+    padding: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    justify-content: center; }
+
+.product-tile {
+  display: inline-block; }
+  .product-tile .product-tile-clickable {
+    padding: 1rem 24px;
+    width: 200px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    background-color: #fff;
+    color: #333; }
+    .product-tile .product-tile-clickable > * {
+      text-align: center; }
+    .product-tile .product-tile-clickable .tile-image img {
+      width: 200px;
+      height: 200px; }
+
+.card {
+  width: 270px;
+  height: 433; }
 
 @media (max-width: 800px) {
   #header-home {

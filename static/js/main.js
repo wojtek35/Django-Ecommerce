@@ -25,6 +25,10 @@ var mobileScreen = window.matchMedia(`(max-width: ${mediaQuery})`)
 myFunction(mobileScreen) // Call listener function at run time
 mobileScreen.addListener(myFunction) // Attach listener function on state changes
 
+
+if (mobileScreen) {
+    modalToggler()
+}
 function modalToggler() {
     $(navButton).hover(
         function(){ 
@@ -41,7 +45,7 @@ function modalToggler() {
         },
     )
 }
-modalToggler()
+
 // Side menu
 function openSlideMenu() {
     document.getElementById('side-menu').style.width = "250px"

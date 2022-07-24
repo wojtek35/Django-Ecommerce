@@ -1,7 +1,84 @@
-{% extends "./base.html" %}
-{% load static %}
-{% block title%}Home{% endblock %}
-
+{% extends "./base.html" %} {% load static %} {% block title%}Home{% endblock %}
 {% block content %}
-    hello page
-{% endblock %}
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-2">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="h1 fw-bold">Search, but amd read</h1>    
+            <p class="lead text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vero ab architecto temporibus asperiores eos, aspernatur maxime. Modi, minus enim est eaque ratione dolor incidunt?</p>
+            <a href="#" class="btn btn-primary my-2">Make an account</a>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container-sm">
+
+      <div class="row text-center row-cols-md-3 row-cols-lg-4 g-5">
+
+        {% for product in products %}
+
+        <div class="col d-flex justify-content-center alig-items-center">
+          <div class="card float-center shadow-sm">
+            <img src="{{ product.image.url }}" alt="" class="img-fluid">
+            <div class="cart-title">{{ product.title }}</div>
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+        
+    
+      </div>
+    </div>
+  </div>
+
+  
+  
+    <!-- <div class="product-section">
+  <div class="container">
+    <div class="products-grid">
+      {% for product in products %}
+      <div class="product-tile">
+        <a href="#" class="product-tile-clickable">
+          <div class="product-tile-background">
+            <div class="tile-image">
+              <img src="{{ product.image.url }}" alt="" />
+            </div>
+          </div>
+          <div class="product-tile-content-wrapper">
+            <div class="product-content-info">
+              <div class="product-tile-name">{{ product.title }}</div>
+              <div class="product-tile-description">
+                {{ product.description }}
+              </div>
+            </div>
+            <div class="product-tile-pricing">
+              <div class="product-tile-pricing-wrapper">
+                <div class="price-tile">{{ product.price }}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+-->
+
+    {% endblock %}
+  </div>
+</div>

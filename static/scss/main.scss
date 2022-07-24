@@ -48,12 +48,19 @@ header {
         justify-content: space-between;
         align-items: center;
     
-        ul {
+        ul.nav-list {
             display: flex;
             align-items: center;
+            margin: 0;
+            padding: 0;
 
             li {
                 position: relative;
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
             }
         }
     
@@ -77,12 +84,20 @@ header {
     #nav-bottom {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         .open-slide {
             a {
                 width: 30px;
                 height: 30px;
-                padding: 0.5rem;
+                // padding: 0.5rem;
                 border:none;
+                position: relative;
+                svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                }
             }
         }
         
@@ -235,8 +250,54 @@ nav {
     }
 }
 
+// Products section
+.products-section {
+    display: block;
+    margin: 0 auto;
+    padding: 2rem;
+    
 
+    .products-grid {
+        padding: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        justify-content: center;
+    }
+}
 
+.product-tile {
+    display: inline-block;
+    .product-tile-clickable {
+        padding: 1rem 24px;
+        width: 200px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        background-color: #fff;
+        color: #333;
+
+        & > * {
+            text-align: center;
+        }
+        .tile-image img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    
+}
+
+// Card
+
+.card {
+    
+    width: 270px;
+    height: 433;
+}
 
 
 
