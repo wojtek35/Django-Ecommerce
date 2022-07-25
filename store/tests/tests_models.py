@@ -1,8 +1,8 @@
-from email.mime import image
-from django.test import TestCase
 from django.contrib.auth.models import User
+from django.test import TestCase
 
 from store.models import Category, Product
+
 
 class TestCategoriesModel(TestCase):
 
@@ -18,12 +18,14 @@ class TestCategoriesModel(TestCase):
         self.assertTrue(isinstance(data, Category))
         self.assertEqual(str(data), 'django')
 
+
 class TestProductModel(TestCase):
 
     def setUp(self):
         Category.objects.create(name='django', slug='django')
         User.objects.create(username='admin')
-        self.data1 = Product.objects.create(category_id=1, title='django product', created_by_id=1, slug='django product', price='20.00', image='django')
+        self.data1 = Product.objects.create(
+            category_id=1, title='django product', created_by_id=1, slug='django product', price='20.00', image='django')
 
     def test_products_model_entry(self):
         """
