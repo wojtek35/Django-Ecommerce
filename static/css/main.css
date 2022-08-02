@@ -240,6 +240,27 @@ nav .search-bar.bottom {
   width: 270px;
   height: 433; }
 
+#cart-button i {
+  position: relative; }
+  #cart-button i #cart-qty {
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Dosis";
+    left: 10px;
+    top: 8px;
+    background-color: #CF8C52;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer; }
+
 @media (max-width: 800px) {
   #header-home {
     height: 30rem; }

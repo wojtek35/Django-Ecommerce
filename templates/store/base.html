@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?2" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?3" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -22,10 +22,12 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     
   </head>
 
-  <body>
+  <body onload="pageLoadHandler()">
     <header>
       <div class="container">
             <nav id="main-nav">
@@ -59,8 +61,21 @@
                         </a>
                     </li class="nav-button">
                     <li>
-                        <a id="cart-button" href="#">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <a id="cart-button" href="{% url 'basket:basket_summary'%}">
+                            <i class="fa-solid fa-cart-shopping">
+                                
+                                    <input
+                                    id="cart-qty"
+                                    readonly="readonly"
+                                    disabled="true"
+                                    type="text"
+                                    onchange="inputChangeHandler()"
+                                    value="{% with basket|length as total_qty %}{% if total_qty > 0%}{{ total_qty }}{% else %}0{% endif %}{% endwith %}"
+                                    >
+                                    
+                                    
+ 
+                            </i>
                             <span class="nav-link">Cart</span>
                         </a>
                     </li>
@@ -108,9 +123,11 @@
         </div>
       </div>
     </header>
-    {% block content %} {% endblock %}
+    <div id="content">
+        {% block content %} {% endblock %}
+    </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    
+    <script src="{% static 'js/main.js' %}?2"></script>
   </body>
 </html>

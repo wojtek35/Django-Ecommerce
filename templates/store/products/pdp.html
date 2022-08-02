@@ -20,7 +20,7 @@
             <div class="row p-3">
               <div class="col-6">{{ product.category }}</div>
               <div class="col-6 text-end">
-                <span class="h4 fw-bold">${{ product.price}}</span>
+                <span class="h4 fw-bold">${{ product.price }}</span>
               </div>
             </div>
           </div>
@@ -29,15 +29,20 @@
               <div class="col-6">
                 <label for="select">Qty</label>
                 <select id="select">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
                 </select>
               </div>
               <div class="col-6 text-end">
-                <button type="button" class="btn btn-secondary btn-md">
+                <button
+                  type="button"
+                  id="add-button"
+                  value="{{ product.id }}"
+                  class="btn btn-secondary btn-md"
+                >
                   Add to cart
                 </button>
               </div>
@@ -48,4 +53,28 @@
     </div>
   </main>
 </div>
+
+<script>
+  $(document).on("click", "#add-button", function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: '{% url "basket:basket_add" %}',
+      data: {
+        csrfmiddlewaretoken: "{{csrf_token}}",
+        productid: $("#add-button").val(),
+        qty: $("#select").val(),
+        action: "post",
+      },
+      success: function (json) {
+        oldQty = parseInt(document.getElementById("cart-qty").value);
+        newQty = oldQty + parseInt(json.qty);
+        document.getElementById("cart-qty").value = newQty;
+        $("#cart-qty").trigger("change");
+      },
+      error: function (xhr, errsmg, err) {},
+    });
+  });
+</script>
+
 {% endblock %}

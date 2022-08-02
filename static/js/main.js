@@ -53,3 +53,24 @@ function openSlideMenu() {
 function closeSlideMenu() {
     document.getElementById('side-menu').style.width = "0"
 }
+
+// Cart Button
+cartButtonIcon = document.querySelector("#cart-button > i")
+cartQty = document.querySelector("#cart-qty")
+
+function pageLoadHandler() {
+    if (cartQty.value == 0) {
+        cartQty.style.display = 'none'
+    } else {
+        cartQty.style.display = 'flex'
+    }  
+    
+}
+
+function inputChangeHandler() {
+    if (cartQty.value !== 0){
+        cartQty.style.display = 'flex'
+    } else {
+        cartQty.style.display = 'none'
+    }
+}

@@ -7,10 +7,11 @@ SECRET_KEY = 'django-insecure-r^zc&(y&^&2$y=_sfhx204ssc!n6i909(v6ex=7347-9w#)lhw
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['hebe.com']
+ALLOWED_HOSTS = ['hebe.com', "127.0.0.1"]
 
 INSTALLED_APPS = [
     'store',
+    'basket',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'store.context_processors.categories',
+                'basket.context_processors.basket'
             ],
         },
     },

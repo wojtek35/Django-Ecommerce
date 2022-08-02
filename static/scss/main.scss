@@ -299,6 +299,32 @@ nav {
     height: 433;
 }
 
+// Cart button
+
+#cart-button i{
+    position: relative;
+
+    #cart-qty {
+        position: absolute;
+        text-align: center;
+        font-weight: 500;
+        font-size: $cart-button-size;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Dosis";
+        left: 10px;
+        top: 8px;
+        background-color: $main-color;
+        color: #fff;
+        width: $cart-button-size+4;
+        height: $cart-button-size+4;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: none !important;
+    }
+}
 
 
 
