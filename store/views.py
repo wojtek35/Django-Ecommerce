@@ -22,7 +22,7 @@ def product_detail_page(request, slug):
 
 def category_list(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
-    products = Product.objects.filter(category=category)
+    products = Product.products.filter(category=category)
     context = {
         'category': category,
         'products': products
