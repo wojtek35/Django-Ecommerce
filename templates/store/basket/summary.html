@@ -83,8 +83,9 @@ load static %} {% block content %}
         action: "post",
       },
       success: function (json) {
-       console.log(prodid)
        $('.product-item[data-index="'+prodid+'"]').remove()
+       document.getElementById('cart-qty').value = json.new_basket_qty
+       document.getElementById('subtotal').innerHTML = json.new_basket_total
       },
       error: function (xhr, errsmg, err) {},
     });
