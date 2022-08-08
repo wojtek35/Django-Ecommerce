@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from .basket import Basket
@@ -40,5 +41,25 @@ def basket_delete(request):
 
         response = JsonResponse({
             'Success': True
+        })
+        return response
+
+
+def basket_update(request):
+    basket = Basket(request)
+    if request.POST.get('action') == 'post':
+        product_id = int(request.POST.get('productid'))
+        qty = int(request.POST.get('product_qty'))
+        basket.update(product=product_id, qty=qty)
+
+        basket_qty = len(basket)
+        basket_total = basket.get_total_price()
+        print(basket_total)
+
+        new_total = Decimal(basket.basket[str(product_id)]['price'])*qty
+        response = JsonResponse({
+            'new_item_total': new_total,
+            'new_basket_qty': basket_qty,
+            'new_basket_total': basket_total
         })
         return response

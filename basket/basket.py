@@ -40,9 +40,20 @@ class Basket():
             del self.basket[product_id]
             self.save()
 
+    def update(self, product, qty):
+        '''
+        Update product qty in session data
+        '''
+        product_id = str(product)
+
+        if product_id in self.basket:
+            self.basket[product_id]['qty'] = qty
+
+        self.save()
+
     def __iter__(self):
         """
-        Collent the product_id in the session data to query the database and return products
+        Collec t the product_id in the session data to query the database and return products
         """
         product_ids = self.basket.keys()
         products = Product.products.filter(id__in=product_ids)

@@ -24,7 +24,7 @@ load static %} {% block content %}
           <div class="col border-bottom">
             <div class="row p-3">
               <div class="col-6 text-end">
-                <span class="h6 fw-bold">${{ product.price }}</span>
+                <span class="h6 fw-bold" id="item{{ product.id }}-total">${{ item.total_price }}</span>
               </div>
             </div>
             <div class="col">
@@ -42,7 +42,7 @@ load static %} {% block content %}
                   <button
                     type="button"
                     id="update-button"
-                    value="{{ product.id }}"
+                    data-index="{{ product.id }}"
                     class="btn btn-outline-secondary btn-sm update-button"
                   >
                     Update
@@ -70,9 +70,10 @@ load static %} {% block content %}
 </main>
 
 <script>
+  // Delete item 
   $(document).on("click", ".delete-button", function (e) {
     e.preventDefault();
-    let prodid = $(this).data('index');
+    var prodid = $(this).data('index');
     $.ajax({
       type: "POST",
       url: '{% url "basket:basket_delete" %}',
@@ -84,6 +85,28 @@ load static %} {% block content %}
       success: function (json) {
        console.log(prodid)
        $('.product-item[data-index="'+prodid+'"]').remove()
+      },
+      error: function (xhr, errsmg, err) {},
+    });
+  });
+
+  // Update Qty 
+  $(document).on("click", ".update-button", function (e) {
+    e.preventDefault();
+    var prodid = $(this).data('index');
+    $.ajax({
+      type: "POST",
+      url: '{% url "basket:basket_update" %}',
+      data: {
+        csrfmiddlewaretoken: "{{csrf_token}}",
+        productid: $(this).data('index'),
+        product_qty: $('#select'+prodid+' option:selected').text(),
+        action: "post",
+      },
+      success: function (json) {
+       $('#item'+ prodid + '-total').text("$"+json.new_item_total);
+       document.getElementById('cart-qty').value = json.new_basket_qty
+       document.getElementById('subtotal').innerHTML = json.new_basket_total
       },
       error: function (xhr, errsmg, err) {},
     });
