@@ -5,7 +5,7 @@ load static %} {% block content %}
   <div class="container">
     <h1 class="h5">Shopping basket</h1>
     {% for item in basket %} {% with product=item.product %}
-    <div class="row mb-4 border">
+    <div class="row mb-4 border product-item" data-index="{{ product.id }}">
       <div class="col-md-3 col-lg-2 order-md-first bg-light">
         <img
           class="img-fluid mx-auto d-block"
@@ -42,7 +42,7 @@ load static %} {% block content %}
                   <button
                     type="button"
                     id="update-button"
-                    data-index="{{ product.id}}"
+                    value="{{ product.id }}"
                     class="btn btn-outline-secondary btn-sm update-button"
                   >
                     Update
@@ -50,7 +50,7 @@ load static %} {% block content %}
                   <button
                     type="button"
                     id="delete-button"
-                    data-index="{{ product.id}}"
+                    data-index="{{ product.id }}"
                     class="btn btn-outline-secondary btn-sm delete-button"
                   >
                     Delete
@@ -68,5 +68,26 @@ load static %} {% block content %}
     </div>
   </div>
 </main>
+
+<script>
+  $(document).on("click", ".delete-button", function (e) {
+    e.preventDefault();
+    let prodid = $(this).data('index');
+    $.ajax({
+      type: "POST",
+      url: '{% url "basket:basket_delete" %}',
+      data: {
+        csrfmiddlewaretoken: "{{csrf_token}}",
+        productid: $(this).data('index'),
+        action: "post",
+      },
+      success: function (json) {
+       console.log(prodid)
+       $('.product-item[data-index="'+prodid+'"]').remove()
+      },
+      error: function (xhr, errsmg, err) {},
+    });
+  });
+</script>
 
 {% endblock %}
