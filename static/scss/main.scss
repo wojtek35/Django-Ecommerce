@@ -326,8 +326,9 @@ nav {
     }
 }
 
-
-
+form label {
+    display: block;
+}
 
 // Import media queries
 @import 'media'

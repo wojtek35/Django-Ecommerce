@@ -259,7 +259,11 @@ nav .search-bar.bottom {
     height: 16px;
     border-radius: 50%;
     border: none;
-    cursor: pointer; }
+    cursor: pointer;
+    display: none !important; }
+
+form label {
+  display: block; }
 
 @media (max-width: 800px) {
   #header-home {

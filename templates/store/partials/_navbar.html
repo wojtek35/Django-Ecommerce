@@ -1,0 +1,92 @@
+{% load static %}
+<header>
+    <div class="container">
+        <nav id="main-nav">
+            <a href="{% url 'store:product_all' %}"><img src="{% static 'img/hebe.svg' %}" id="logo" /></a>
+            <form class="search-bar top">
+                <div class="input-wrapper">
+                    <input class="search-bar" type="text" class="search-field" value placeholder="Search product...">
+                </div>
+            </form>
+
+            <ul class="nav-list">
+                <li class="nav-button">
+                    <a id="account-button" href="{% url 'account:register' %}">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="nav-link">My Account</span>
+                    </a>
+                    <div class="nav-modal">
+                        <div class="small-modal">
+                            <div class="modal-utility"></div>
+                            <div class="shape"></div>
+                            <h1>Hello</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="nav-button">
+                    <a id="wishlist-button" href="#">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="nav-link">Wishlist</span>
+                    </a>
+                </li class="nav-button">
+                <li>
+                    <a id="cart-button" href="{% url 'basket:basket_summary'%}">
+                        <i class="fa-solid fa-cart-shopping">
+
+                            <input id="cart-qty" readonly="readonly" disabled="true" type="text"
+                                onchange="inputChangeHandler()"
+                                value="{% with basket|length as total_qty %}{% if total_qty > 0%}{{ total_qty }}{% else %}0{% endif %}{% endwith %}">
+
+
+
+                        </i>
+                        <span class="nav-link">Cart</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <nav id="nav-bottom">
+            <div class="large-screen">
+                <ul class="navbar-nav">
+                    {% for category in categories %}
+                    <li><a href="{{ category.get_absolute_url }}">{{category.name|title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="small-screen">
+                <div>
+                    <span class="open-slide">
+                        <a href="#" onclick="openSlideMenu()">
+                            <svg width="30" height="30">
+                                <path d="M0,5 30,5" stroke="#333" stroke-width="4" />
+                                <path d="M0,14 30,14" stroke="#333" stroke-width="4" />
+                                <path d="M0,23 30,23" stroke="#333" stroke-width="4" />
+                            </svg>
+                        </a>
+
+                    </span>
+                    <form class="search-bar bottom">
+                        <div class="input-wrapper">
+                            <input class="search-bar" type="text" class="search-field" value
+                                placeholder="Search product...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </nav>
+
+        <!-- <div id="side-menu" class="side-nav">
+              <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+              <a href="#">Makijaż</a>
+              <a href="#">Makijaż</a>
+              <a href="#">Makijaż</a>
+              <a href="#">Makijaż</a>
+          </div> --->
+    </div>
+    </div>
+</header>

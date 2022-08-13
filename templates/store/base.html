@@ -1,133 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{% block title %}Hebe | Zdrowie i Piękno{% endblock %}</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?3" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&family=Open+Sans:wght@300&family=Poppins:ital,wght@0,400;0,700;1,500&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    
-  </head>
+  <!-- Links -->
+  {% include './partials/_links.html' %}
 
   <body onload="pageLoadHandler()">
-    <header>
-      <div class="container">
-            <nav id="main-nav">
-                <a href="{% url 'store:product_all' %}"><img src="{% static 'img/hebe.svg' %}" id="logo" /></a> 
-                <form class="search-bar top">
-                    <div class="input-wrapper">
-                        <input class="search-bar" type="text" class="search-field" value placeholder="Search product...">
-                    </div>
-                </form>
-                
-                <ul class="nav-list">
-                    <li class="nav-button">
-                        <a id="account-button" href="#">
-                            <i class="fa-solid fa-user"></i>
-                            <span class="nav-link">My Account</span>
-                        </a>
-                        <div class="nav-modal">  
-                            <div class="small-modal">
-                                <div class="modal-utility"></div>
-                                <div class="shape"></div>
-                                <h1>Hello</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
-                            </div>
-                        </div>
-                        
-                    </li>
-                    <li class="nav-button">
-                        <a id="wishlist-button" href="#">
-                            <i class="fa-solid fa-heart"></i>
-                            <span class="nav-link">Wishlist</span>
-                        </a>
-                    </li class="nav-button">
-                    <li>
-                        <a id="cart-button" href="{% url 'basket:basket_summary'%}">
-                            <i class="fa-solid fa-cart-shopping">
-                                
-                                    <input
-                                    id="cart-qty"
-                                    readonly="readonly"
-                                    disabled="true"
-                                    type="text"
-                                    onchange="inputChangeHandler()"
-                                    value="{% with basket|length as total_qty %}{% if total_qty > 0%}{{ total_qty }}{% else %}0{% endif %}{% endwith %}"
-                                    >
-                                    
-                                    
- 
-                            </i>
-                            <span class="nav-link">Cart</span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </nav>
-            <nav id="nav-bottom">
-                <div class="large-screen">
-                    <ul class="navbar-nav">
-                    {% for category in categories %}
-                        <li><a href="{{ category.get_absolute_url }}">{{category.name|title}}</a></li>
-                    {% endfor %}
-                    </ul>
-                </div>
-                <div class="small-screen">
-                <div>
-                    <span class="open-slide">
-                        <a href="#" onclick="openSlideMenu()">
-                            <svg width="30" height="30">
-                                <path d="M0,5 30,5" stroke="#333" stroke-width="4"/>
-                                <path d="M0,14 30,14" stroke="#333" stroke-width="4"/>
-                                <path d="M0,23 30,23" stroke="#333" stroke-width="4"/>
-                            </svg>
-                        </a>
-                        
-                    </span>
-                    <form class="search-bar bottom">
-                        <div class="input-wrapper">
-                            <input class="search-bar" type="text" class="search-field" value placeholder="Search product...">
-                        </div>
-                    </form>
-                </div>
-                </div>
-                    
-                
-            </nav>
+    <!-- Header -->
+    {% include './partials/_navbar.html' %}
 
-            <!-- <div id="side-menu" class="side-nav">
-                <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-                <a href="#">Makijaż</a>
-                <a href="#">Makijaż</a>
-                <a href="#">Makijaż</a>
-                <a href="#">Makijaż</a>
-            </div> --->
-        </div>
-      </div>
-    </header>
-    <div id="content">
-        {% block content %} {% endblock %}
-    </div>
-    
-    
+    <!-- Main content -->
+    <div id="content">{% block content %} {% endblock %}</div>
+
+    <!-- Footer -->
+    {% include './partials/_footer.html' %}
+
     <script src="{% static 'js/main.js' %}?2"></script>
   </body>
 </html>
