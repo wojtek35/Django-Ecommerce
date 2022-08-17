@@ -17,7 +17,7 @@ def basket_add(request):
         qty = request.POST.get('qty')
         product = get_object_or_404(Product, id=product_id)
         basket.add(product=product, qty=qty)
-
+        print(basket.basket)
         '''
         get_object_or_404 method is basically:
 

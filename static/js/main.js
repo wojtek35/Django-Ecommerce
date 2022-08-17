@@ -70,7 +70,8 @@ function pageLoadHandler() {
 function inputChangeHandler() {
     if (cartQty.value !== 0){
         cartQty.style.display = 'flex'
-    } else {
+    }
+    else {
         cartQty.style.display = 'none'
     }
 }

@@ -1,0 +1,54 @@
+{% extends "../../store/base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 mx-auto">
+                            <form class="account-form p-4 rounded col-lg-10 mx-auto" action="." method="post">
+                                {% csrf_token %}
+                                <h4 class="mb-3">Edit Details</h4>
+
+                                {% if form.errors %}
+                                {% for field in form %}
+                                {% if field.errors %}
+                                <div class="alert alert-primary" role="alert">
+                                    {{ field.errors|striptags }}
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                                {% if form.is_valid %}
+                                <div class="alert alert-primary" role="alert">
+                                    <p>Details Successfully updated!</p>
+                                </div>
+                                <p class="small text-center pt-0">
+                                    <a href="{% url 'account:dashboard' %}">Back to Dashboard</a>
+                                </p>
+                                {% endif %}
+                                <label>User name</label>
+                                {{ form.user_name }}
+                                <label>Email</label>
+                                {{ form.email }}
+                                <label>First Name</label>
+                                {{ form.first_name }}
+                                <button class="btn btn-primary btn-block py-2 mb-4 mt-4 fw500 w-100"
+                                    type="submit">Submit Changes</button>
+
+                            </form>
+                            <form class="col-lg-10 mx-auto px-4" action="{% url 'account:delete_user' %}" method="post">
+                                <button class="btn btn-danger btn-block py-2 fw500 w-100" type="submit">Delete
+                                    Your account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

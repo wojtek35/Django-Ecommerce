@@ -1,0 +1,43 @@
+{% extends "../../store/base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 mx-auto">
+                            <form class="account-form p-4 rounded col-lg-10 mx-auto" action="{% url 'account:login' %}"
+                                method="post">
+                                {% csrf_token %}
+                                <h4 class="mb-3">Log In</h4>
+
+                                {% if form.errors %}
+                                <div class="alert alert-primary" role="alert">
+                                    <p>Error: Username of Password not correct!</p>
+                                </div>
+                                {% endif %}
+
+                                <label>Username</label>
+                                {{ form.username }}
+                                <label>Password</label>
+                                {{ form.password }}
+                                <button class="btn btn-primary btn-block py-2 mb-4 mt-4 fw500 w-100" type="submit">Log
+                                    In</button>
+                                <p class="text-center">
+                                    <a href="{% url 'account:pwdreset' %}">Forgot your password?</a>
+                                </p>
+                                <p class="text-center">
+                                    <a href="">Don't have an account?</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

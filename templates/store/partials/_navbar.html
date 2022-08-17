@@ -10,8 +10,9 @@
             </form>
 
             <ul class="nav-list">
+                {% if user.is_authenticated %}
                 <li class="nav-button">
-                    <a id="account-button" href="{% url 'account:register' %}">
+                    <a id="account-button" href="{% url 'account:dashboard' %}">
                         <i class="fa-solid fa-user"></i>
                         <span class="nav-link">My Account</span>
                     </a>
@@ -23,8 +24,51 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
                         </div>
                     </div>
-
                 </li>
+                <li class="nav-button">
+                    <a id="logout-button" href="{% url 'account:logout' %}">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span class="nav-link">Logout</span>
+                    </a>
+                    <div class="nav-modal">
+                        <div class="small-modal">
+                            <div class="modal-utility"></div>
+                            <div class="shape"></div>
+                            <h1>Hello</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
+                        </div>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-button">
+                    <a id="register-button" href="{% url 'account:register' %}">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="nav-link">Register</span>
+                    </a>
+                    <div class="nav-modal">
+                        <div class="small-modal">
+                            <div class="modal-utility"></div>
+                            <div class="shape"></div>
+                            <h1>Hello</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-button">
+                    <a id="login-button" href="{% url 'account:login' %}">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span class="nav-link">Log in</span>
+                    </a>
+                    <div class="nav-modal">
+                        <div class="small-modal">
+                            <div class="modal-utility"></div>
+                            <div class="shape"></div>
+                            <h1>Hello</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, deserunt.</p>
+                        </div>
+                    </div>
+                </li>
+                {% endif %}
                 <li class="nav-button">
                     <a id="wishlist-button" href="#">
                         <i class="fa-solid fa-heart"></i>
@@ -34,13 +78,9 @@
                 <li>
                     <a id="cart-button" href="{% url 'basket:basket_summary'%}">
                         <i class="fa-solid fa-cart-shopping">
-
                             <input id="cart-qty" readonly="readonly" disabled="true" type="text"
                                 onchange="inputChangeHandler()"
                                 value="{% with basket|length as total_qty %}{% if total_qty > 0%}{{ total_qty }}{% else %}0{% endif %}{% endwith %}">
-
-
-
                         </i>
                         <span class="nav-link">Cart</span>
                     </a>

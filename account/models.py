@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 class CustomAccountManager(BaseUserManager):
 
-    def create_superuser(self, email, user_name, password, **other_fields):
+    def create_superuser(self, user_name, email, password, **other_fields):
 
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
@@ -23,15 +23,15 @@ class CustomAccountManager(BaseUserManager):
                 'Superuser must be assigned to is_superuser=True'
             )
 
-        return self.create_user(email, user_name, password, **other_fields)
+        return self.create_user(user_name, email, password, **other_fields)
 
-    def create_user(self, email, user_name, password, **other_fields):
+    def create_user(self, user_name, email, password, **other_fields):
 
         if not email:
-            raise ValueError(_('You must provice an email address'))
+            raise ValueError(_('You must provide an email address'))
 
         email = self.normalize_email(email)
-        user = self.model(email=email, user_name=user_name, **other_fields)
+        user = self.model(user_name=user_name, email=email, **other_fields)
         user.set_password(password)
         user.save()
         return user
@@ -57,8 +57,8 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomAccountManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['user_name']
+    USERNAME_FIELD = 'user_name'
+    REQUIRED_FIELDS = ['email']
 
     class Meta:
         verbose_name = "Accounts"

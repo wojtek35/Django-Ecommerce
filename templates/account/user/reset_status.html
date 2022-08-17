@@ -1,0 +1,27 @@
+{% extends "../../store/base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 mx-auto">
+                            {% if 'email' in request.get_full_path %}
+                            <h4 class="mb-3">Emails has been sent</h4>
+                            <p>Check your inbox</p>
+                            {% endif %}
+                            {% if 'complete' in request.get_full_path %}
+                            <h4 class="mb-3">Password has been set</h4>
+                            <p>You can now login with your new password</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

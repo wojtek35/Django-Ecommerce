@@ -260,7 +260,7 @@ nav .search-bar.bottom {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    display: none !important; }
+    display: none; }
 
 form label {
   display: block; }
