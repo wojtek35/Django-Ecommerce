@@ -47,7 +47,7 @@ input[class^='btn-']:hover {
 body {
   font-family: 'Dosis', sans-serif;
   line-height: 1.6;
-  background: #f4f4f4; }
+  background: #fff; }
 
 a {
   text-decoration: none;
@@ -82,20 +82,21 @@ header {
       padding: 0; }
       header #main-nav ul.nav-list li {
         position: relative; }
+        header #main-nav ul.nav-list li * {
+          transition: color 50ms; }
         header #main-nav ul.nav-list li a {
           display: flex;
           flex-direction: row;
           align-items: center; }
+          header #main-nav ul.nav-list li a:hover {
+            color: #CF8C52; }
     header #main-nav i {
       margin-right: 0.5rem; }
     header #main-nav a {
       text-decoration: none;
       color: #333;
       padding: 10px;
-      margin: 0;
-      transition: color 0.3s; }
-      header #main-nav a:hover {
-        color: #CF8C52; }
+      margin: 0; }
   header #nav-bottom {
     display: flex;
     justify-content: space-between;
@@ -160,7 +161,7 @@ nav .search-bar.bottom {
   flex: 2; }
 
 .nav-modal {
-  display: none;
+  display: none !important;
   opacity: 0; }
 
 .modal-utility {
@@ -259,8 +260,7 @@ nav .search-bar.bottom {
     height: 16px;
     border-radius: 50%;
     border: none;
-    cursor: pointer;
-    display: none; }
+    cursor: pointer; }
 
 form label {
   display: block; }

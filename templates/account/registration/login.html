@@ -24,6 +24,7 @@
                                 {{ form.username }}
                                 <label>Password</label>
                                 {{ form.password }}
+                                <input type="hidden" name="next" value="{{ request.GET.next }}" />
                                 <button class="btn btn-primary btn-block py-2 mb-4 mt-4 fw500 w-100" type="submit">Log
                                     In</button>
                                 <p class="text-center">

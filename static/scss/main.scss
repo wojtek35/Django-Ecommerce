@@ -10,7 +10,7 @@
 body {
     font-family: 'Dosis', sans-serif;
     line-height: 1.6;
-    background: $light-color;
+    background: #fff;
 }
 
 a {
@@ -56,11 +56,19 @@ header {
 
             li {
                 position: relative;
+                * {
+                    transition: color 50ms;
+                }
                 a {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+
+                    &:hover {
+                        color: $main-color;
+                    }
                 }
+            
             }
         }
     
@@ -73,11 +81,6 @@ header {
             color: $dark-color;
             padding: 10px;
             margin: 0;
-            transition: color 0.3s;
-    
-            &:hover {
-                color: $main-color
-            }
         }
     }
 
@@ -185,7 +188,7 @@ nav {
 }
 // Account button
 .nav-modal {
-    display: none;
+    display: none !important;
     opacity: 0;
 }
 
@@ -322,7 +325,6 @@ nav {
         border-radius: 50%;
         border: none;
         cursor: pointer;
-        display: none;
     }
 }
 

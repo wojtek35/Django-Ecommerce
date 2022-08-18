@@ -26,25 +26,25 @@ myFunction(mobileScreen) // Call listener function at run time
 mobileScreen.addListener(myFunction) // Attach listener function on state changes
 
 
-if (mobileScreen) {
-    modalToggler()
-}
-function modalToggler() {
-    $(navButton).hover(
-        function(){ 
-            $(navModal).toggleClass("visibleDisplay")
-            setTimeout(function() {
-                $(navModal).toggleClass("visibleOpacity")
-            }, 1)
-        },
-        function(){ 
-            $(navModal).toggleClass("visibleOpacity")
-            setTimeout(function() {
-                $(navModal).toggleClass("visibleDisplay")
-            }, opacityTransition+1)
-        },
-    )
-}
+// if (mobileScreen) {
+//     modalToggler()
+// }
+// function modalToggler() {
+//     $(navButton).hover(
+//         function(){ 
+//             $(navModal).toggleClass("visibleDisplay")
+//             setTimeout(function() {
+//                 $(navModal).toggleClass("visibleOpacity")
+//             }, 1)
+//         },
+//         function(){ 
+//             $(navModal).toggleClass("visibleOpacity")
+//             setTimeout(function() {
+//                 $(navModal).toggleClass("visibleDisplay")
+//             }, opacityTransition+1)
+//         },
+//     )
+// }
 
 // Side menu
 function openSlideMenu() {
