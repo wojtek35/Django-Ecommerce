@@ -89,7 +89,7 @@
 </div>
 <script>
     // Make csrd token available in JS files
-    var CSRF_TOKEN = '{{ csrd_token }}'
+    var CSRF_TOKEN = '{{ csrf_token }}'
 </script>
 <script src="https://js.stripe.com/v3/"></script>
 <script src="{% static 'payment/index.js' %}"></script>

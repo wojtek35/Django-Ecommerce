@@ -10,6 +10,7 @@ from django.http import HttpResponse
 from .models import UserBase
 from .forms import RegistrationForm, UserEditForm
 from .token import account_activation_token
+from orders.views import user_orders
 
 
 def accouont_register(request):
@@ -80,4 +81,5 @@ def delete_user(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'account/user/dashboard.html')
+    orders = user_orders(request)
+    return render(request, 'account/user/dashboard.html', {'orders': orders})

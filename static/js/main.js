@@ -2,7 +2,7 @@ const mediaQuery = '800px'
 let navButton = document.querySelector(".nav-button")
 let navModal = document.querySelector(".nav-modal")
 const opacityTransition = 400;
-navModal.style.transition = `all ${opacityTransition}ms`
+// navModal.style.transition = `all ${opacityTransition}ms`
 
 let navIcons = document.querySelectorAll("#main-nav ul i")
 function myFunction(mobileScreen) {
@@ -10,12 +10,12 @@ function myFunction(mobileScreen) {
         navIcons.forEach(function(icon) {
             icon.classList.add("fa-xl")
         });
-        navModal.style.display="none"
+        // navModal.style.display="none"
     } else {
         navIcons.forEach(function(icon) {
             icon.classList.remove("fa-xl")
         });
-        navModal.style.display="block"
+        // navModal.style.display="block"
         
         
     }
@@ -55,8 +55,8 @@ function closeSlideMenu() {
 }
 
 // Cart Button
-cartButtonIcon = document.querySelector("#cart-button > i")
-cartQty = document.querySelector("#cart-qty")
+let cartButtonIcon = document.querySelector("#cart-button > i")
+let cartQty = document.querySelector("#cart-qty")
 
 function pageLoadHandler() {
     if (cartQty.value == 0) {
