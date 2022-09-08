@@ -9,7 +9,7 @@ def product_all(request):
         'products': products
 
     }
-    return render(request, 'store/home.html', context)
+    return render(request, 'store/index.html', context)
 
 
 def product_detail_page(request, slug):
@@ -17,7 +17,7 @@ def product_detail_page(request, slug):
     context = {
         "product": product
     }
-    return render(request, 'store/products/pdp.html', context)
+    return render(request, 'store/pdp.html', context)
 
 
 def category_list(request, category_slug):
@@ -27,4 +27,4 @@ def category_list(request, category_slug):
         'category': category,
         'products': products
     }
-    return render(request, 'store/products/category.html', context)
+    return render(request, 'store/category.html', context)

@@ -110,5 +110,3 @@ LOGIN_URL = '/account/login'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STRIPE_ENDPOINT_SECRET = 'whsec_1913bf5b4dd2c44223adae816f4867c2ce94760d75e72fe1c82468fa022f1c9e'
-
-APPEND_SLASH = False

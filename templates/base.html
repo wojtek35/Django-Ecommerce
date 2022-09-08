@@ -1,4 +1,7 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Links -->
 
 <head>
   <meta charset="UTF-8" />
@@ -27,3 +30,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 </head>
+
+<body onload="pageLoadHandler()">
+  <!-- Header -->
+  {% include './store/partials/_navbar.html' %}
+
+  <!-- Main content -->
+  <div id="content">{% block content %} {% endblock %}</div>
+
+  <!-- Footer -->
+  {% include './store/partials/_footer.html' %}
+
+  <script src="{% static 'js/main.js' %}?2"></script>
+</body>
+
+</html>

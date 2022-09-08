@@ -37,8 +37,6 @@ def order_placed(request):
 def stripe_webhook(request):
     payload = request.body
     event = None
-    print('pierdoloe!!!')
-
     try:
         event = stripe.Event.construct_from(
             json.loads(payload), stripe.api_key
