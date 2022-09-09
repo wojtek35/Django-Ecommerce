@@ -66,6 +66,12 @@ img {
   width: 70px;
   height: 70px; }
 
+ul.category-items {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0; }
+
 header {
   background: #fff;
   padding-bottom: 0;
@@ -82,7 +88,7 @@ header {
       padding: 0; }
       header #main-nav ul.nav-list li {
         position: relative; }
-        header #main-nav ul.nav-list li * {
+        header #main-nav ul.nav-list li flex * {
           transition: color 50ms; }
         header #main-nav ul.nav-list li a {
           display: flex;
@@ -110,9 +116,6 @@ header {
         position: absolute;
         top: 0;
         left: 0; }
-    header #nav-bottom ul {
-      display: flex;
-      flex-direction: row; }
     header #nav-bottom a {
       float: left;
       display: block;
@@ -125,7 +128,6 @@ header {
       header #nav-bottom a:hover {
         border-bottom: 2px solid #CF8C52; }
     header #nav-bottom .small-screen {
-      display: none;
       width: 100%; }
       header #nav-bottom .small-screen div {
         display: flex;
@@ -159,6 +161,9 @@ nav .search-bar.bottom {
 nav .search-bar.bottom {
   width: 100%;
   flex: 2; }
+
+.hamburger-menu {
+  display: none !important; }
 
 .nav-modal {
   display: none !important;
@@ -265,6 +270,12 @@ nav .search-bar.bottom {
 form label {
   display: block; }
 
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0; }
+
 @media (max-width: 800px) {
   #header-home {
     height: 30rem; }
@@ -274,13 +285,42 @@ form label {
     display: none !important; }
   .search-bar.bottom {
     display: block !important; }
+  .hamburger-menu {
+    display: block !important; }
   #main-nav a {
     padding: 0.5rem; }
   #main-nav span {
     display: none; }
-  #nav-bottom .large-screen {
-    display: none; }
-  #nav-bottom .small-screen {
-    display: inline-block !important; }
+  #nav-bottom {
+    margin-bottom: 10px; }
+    #nav-bottom .large-screen {
+      display: none; }
+    #nav-bottom .small-screen {
+      display: inline-block !important; }
+  .navbar-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    width: 100%;
+    top: 160px;
+    left: 0;
+    z-index: 100;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 500ms ease-out; }
+    .navbar-nav li {
+      margin: 0 1rem;
+      border-bottom: 1px solid #ccc; }
+      .navbar-nav li a {
+        color: red; }
+      .navbar-nav li a:hover {
+        border-bottom: none; }
+      .navbar-nav li a:focus {
+        color: #CF8C52; }
+  .navbar-nav.expanded {
+    max-height: 300px; }
   header {
     padding: 1rem 0; } }

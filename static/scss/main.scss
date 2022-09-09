@@ -36,6 +36,13 @@ img {
     height: 70px;
 }
 
+ul.category-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
 // Header
 header {
     background: #fff;
@@ -56,6 +63,7 @@ header {
 
             li {
                 position: relative;
+                flex
                 * {
                     transition: color 50ms;
                 }
@@ -104,11 +112,7 @@ header {
             }
         }
         
-
-        ul {
-            display: flex;
-            flex-direction: row;
-        }
+        
 
         a {
             float: left;
@@ -126,7 +130,6 @@ header {
         }
 
         .small-screen {
-            display: none;
             width: 100%;
             
             div {
@@ -178,13 +181,17 @@ nav {
     .search-bar.bottom {
         display: none;
     }
-
+   
     
     .search-bar.bottom {
         width: 100%;
         flex: 2;
     }
 
+}
+
+.hamburger-menu {
+    display: none !important;
 }
 // Account button
 .nav-modal {
@@ -330,6 +337,13 @@ nav {
 
 form label {
     display: block;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
 }
 
 // Import media queries

@@ -46,14 +46,6 @@ mobileScreen.addListener(myFunction) // Attach listener function on state change
 //     )
 // }
 
-// Side menu
-function openSlideMenu() {
-    document.getElementById('side-menu').style.width = "250px"
-}
-function closeSlideMenu() {
-    document.getElementById('side-menu').style.width = "0"
-}
-
 // Cart Button
 let cartButtonIcon = document.querySelector("#cart-button > i")
 let cartQty = document.querySelector("#cart-qty")

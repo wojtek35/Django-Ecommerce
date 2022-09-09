@@ -137,3 +137,4 @@ GitHub.sublime-settings
 .history
 /static/img
 /static/node_modules
+/staticfiles

@@ -57,8 +57,8 @@
             </ul>
         </nav>
         <nav id="nav-bottom">
-            <div class="large-screen">
-                <ul class="navbar-nav">
+            <div class="category-items">
+                <ul id="navbar-nav" class="navbar-nav">
                     {% for category in categories %}
                     <li><a href="{{ category.get_absolute_url }}">{{category.name|title}}</a></li>
                     {% endfor %}
@@ -67,7 +67,7 @@
             <div class="small-screen">
                 <div>
                     <span class="open-slide">
-                        <a href="#" onclick="openSlideMenu()">
+                        <a href="#" class="hamburger-menu" onclick="toggleMenu()">
                             <svg width="30" height="30">
                                 <path d="M0,5 30,5" stroke="#333" stroke-width="4" />
                                 <path d="M0,14 30,14" stroke="#333" stroke-width="4" />
@@ -99,3 +99,10 @@
     </div>
     </div>
 </header>
+<script>
+    function toggleMenu() {
+        const navItems = document.getElementById('navbar-nav')
+        navItems.classList.toggle("expanded");
+
+    }
+</script>
