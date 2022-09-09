@@ -35,7 +35,7 @@ def accouont_register(request):
                 'token': account_activation_token.make_token(user)
             })
             user.email_user(subject=subject, message=message)
-            return HttpResponse(f'registered succesfully and activation sent', + '\n' + message)
+            return HttpResponse(f'registered succesfully and activation sent \n${message}')
 
     else:
         registerForm = RegistrationForm()
